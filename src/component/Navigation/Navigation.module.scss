@@ -1,0 +1,22 @@
+.nav {
+    grid-area: nav;
+    margin-right: 5px;
+    padding: 15px;
+    background: #00B75A;
+
+    > div {
+        margin-bottom: 3px;
+        &:last-child {
+            margin-top: 80px;
+        }
+    }
+
+    .item {
+        color: white;
+        text-decoration: none;
+        font-size: 23px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

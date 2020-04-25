@@ -1,0 +1,38 @@
+.posts_wrap {
+    padding: 6px;
+    clear: both;
+
+    .post_new {
+
+
+        textarea {
+            width: calc(100% - 8px);
+            border: 2px solid #eeeeee;
+            min-height: 90px;
+            resize: none;
+        }
+        button {
+            padding: 6px;
+            border: none;
+            background: #00B75A;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            float: right;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    .active {
+        opacity: 0.9;
+    }
+
+    .posts {
+        padding: 6px;
+        float: none;
+        clear: both;
+    }
+
+}
