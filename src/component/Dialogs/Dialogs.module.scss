@@ -1,0 +1,19 @@
+.dialogs {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-auto-columns: 4fr 8fr;
+  grid-template-areas:
+          "dialogs_list messages";
+
+  .dialogs_list {
+    padding: 10px;
+    grid-area: dialogs_list;
+    border-right: 1px solid #ddd;
+  }
+
+  .messages {
+    padding: 10px;
+    grid-area: messages;
+  }
+
+}

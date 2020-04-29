@@ -2,7 +2,10 @@ import React from "react";
 import style from './MyPosts.module.scss';
 import Post from "./Posts/Post";
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+
+    let postsElements = props.posts.map(post => <Post message={post.message} likesCount={post.likes} />);
+
     return (
         <div className={style.posts_wrap}>
             <div className={style.post_new}>
@@ -11,8 +14,7 @@ const MyPosts = () => {
                 <button> Add Post </button>
             </div>
             <div className={style.posts}>
-                <Post message={"Hello, hour are y?"} likesCount={7}/>
-                <Post message={"Its my first post!"} likesCount={13}/>
+                {postsElements}
             </div>
         </div>
     );

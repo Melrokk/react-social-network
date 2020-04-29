@@ -1,0 +1,32 @@
+.message {
+  display: block;
+
+  .item {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 8px 0;
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  &.message_out {
+    text-align: right;
+
+    .item {
+      background-color: aliceblue;
+      border-radius: 9px 0 9px 9px;
+
+    }
+  }
+
+  &.message_in {
+    text-align: left;
+
+    .item {
+      border-radius: 0 9px 9px 9px;
+      background-color: #e7e9ff;
+    }
+  }
+
+
+}

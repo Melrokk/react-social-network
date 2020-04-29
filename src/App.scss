@@ -6,8 +6,13 @@ $main_color: #00B75A;
   margin: 15px auto;
   display: grid;
   grid-template-rows: 60px 1fr;
-  grid-auto-columns: 3fr 9fr;
+  grid-auto-columns: 200px 10fr;
   grid-template-areas:
   "header header"
   "nav content";
+}
+
+.app-wrapper-content {
+  grid-area: content;
+  margin-left: 10px;
 }
