@@ -5,7 +5,7 @@ import FriendItem from "./FriendItem/FriendItem";
 
 const Friends = (props) => {
 
-    let friendsElements = props.state.map(friend =>
+    let friendsElements = props.store.map(friend =>
         <FriendItem
             id={friend.id}
             img={friend.imgUrl}
