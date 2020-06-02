@@ -8,6 +8,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
+
+  hr {
+    overflow: visible;
+    text-align: inherit;
+    margin: 14px 0 14px 0;
+    border: 0;
+    border-top: 1px solid #ebebee;
+  }
 }
 
 code {
@@ -16,17 +24,52 @@ code {
 }
 
 .app-wrapper {
-  width: 1200px;
-  margin: 15px auto;
-  display: grid;
-  grid-template-rows: 60px 1fr;
-  grid-auto-columns: 200px 10fr;
-  grid-template-areas: "header header" "nav content";
+  display: block;
 }
 
 .app-wrapper-content {
-  grid-area: content;
-  margin-left: 10px;
+  position: relative;
+  z-index: 5;
+  display: block;
+  margin-left: 275px;
+  padding-top: 65px;
+  overflow: visible;
+  transition: all 0.45s cubic-bezier(0, 0, 0, 1.09);
+
+  .app-wrapper-content-inner {
+    display: block;
+    padding: 20px;
+    margin: auto;
+    padding-bottom: 0;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .app-wrapper-content-inner {
+    max-width: 1000px;
+    padding: 25px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .app-wrapper-content-inner {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1260px) {
+  .app-wrapper-content {
+    margin-left: 0 !important;
+    padding-top: 60px;
+    background: white;
+
+    .app-wrapper-content-inner {
+      padding: 15px;
+    }
+  }
+
 }
 
 .mt-0 {

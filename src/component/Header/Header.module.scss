@@ -1,10 +1,180 @@
 
-.header {
-    grid-area: header;
-    margin-bottom: 10px;
-    background-color: #00B75A;
+.main_header {
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  top: 0;
 
-    img {
-        width: 50px;
+  .header {
+    margin-left: 270px;
+    width: calc(100% - 270px);
+    padding: 0;
+    box-shadow: 0 1px 0 0 rgba(139, 141, 157, 0.05), 10px 1px 7px 0 rgba(65, 71, 108, 0.15);
+
+    .header_inner {
+      max-width: 1200px;
+      padding: 0 25px;
+      margin: auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      height: 64px;
+
+      .header_btn_traiger {
+        padding: 9px;
+        left: 12px;
+        position: absolute;
+        font-size: 23px;
+        cursor: pointer;
+        border-radius: 60px;
+        width: 33px;
+        height: 33px;
+        top: 5px;
+
+        span {
+          cursor: pointer;
+          border-radius: 0.3em;
+          height: 3px;
+          width: 71%;
+          background: #b5b5b5;
+          position: relative;
+          display: block;
+          top: 44%;
+          -webkit-transition: all 0.25s ease-out;
+          &:after {
+            cursor: pointer;
+            border-radius: 0.3em;
+            height: 3px;
+            background: #b5b5b5;
+            position: relative;
+            display: block;
+            width: 54%;
+            content: '';
+            top: 4px;
+            -webkit-transition: all 0.25s ease-out;
+          }
+
+          &:before {
+            cursor: pointer;
+            border-radius: 0.3em;
+            height: 3px;
+            background: #b5b5b5;
+            position: relative;
+            display: block;
+            width: 76%;
+            content: " ";
+            top: -7px;
+            -webkit-transition: all 0.25s ease-out;
+          }
+        }
+      }
+
+      .logo {
+        position: absolute;
+        left: 65px;
+        top: 8px;
+
+        a {
+          color: #929292;
+          text-decoration: none;
+          cursor: pointer;
+          transition: all 0.3s ease 0s;
+
+          img {
+            width: 50px;
+          }
+        }
+      }
+
+      .head_user {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        padding-right: 30px;
+
+        .opts_icon_link {
+          text-decoration: none;
+          cursor: pointer;
+          transition: all 0.3s ease 0s;
+          border-color: rgba(249, 144, 31, 0.05);
+          color: #1a73e8;
+          line-height: 22px;
+          border-radius: 5px;
+          font-weight: 600;
+          font-size: 14.5px;
+          padding: 7px 17px;
+
+          &:hover {
+            background: rgb(241, 243, 244);
+            color: #1a73e8;
+          }
+        }
+        .opts_icon {
+          margin-left: 10px;
+          font-size: 19px;
+          position: relative;
+          padding: 5px 9px;
+          border-radius: 100px;
+          color: #929292;
+          text-decoration: none;
+          cursor: pointer;
+          line-height: 15px;
+          transition: all 0.3s ease 0s;
+
+          &:hover {
+            background-color: #f1f3f4;
+          }
+
+          > img {
+            width: 26px;
+            height: 26px;
+            display: inline-block;
+          }
+
+          span {
+            position: absolute !important;
+            display: block;
+            margin-left: -10px;
+            font-weight: 700;
+            height: 16px;
+            width: 16px;
+            line-height: 15px;
+            text-align: center;
+            color: #fff;
+            font-size: 10px;
+            background-color: #ec5252;
+            border-radius: 50%;
+            padding: 0;
+            right: 3px;
+            top: 3px;
+          }
+        }
+        .opts_account {
+          margin-left: 12px;
+          color: #929292;
+          text-decoration: none;
+          cursor: pointer;
+          margin-bottom: auto;
+          margin-top: auto;
+          transition: all 0.3s ease 0s;
+          vertical-align: middle;
+
+          img {
+            width: 32px;
+            height: 32px;
+            object-fit: cover;
+            border-radius: 50%;
+            cursor: pointer;
+            display: block;
+            margin-top: auto;
+            margin-bottom: auto;
+          }
+        }
+      }
+
     }
+  }
 }

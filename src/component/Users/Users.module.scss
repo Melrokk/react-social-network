@@ -7,12 +7,49 @@
     margin-top: 0;
   }
 }
+
+.pagination_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -20px;
+  padding: 0;
+  list-style: none;
+
+  & > li {
+    flex: none;
+    padding-left: 20px;
+    position: relative;
+
+    &.activePage > * {
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #1a73e8;
+      border-color: #3e416d;
+      display: inline-flex;
+    }
+
+    & > * {
+      display: block;
+      transition: color 0.1s ease-in-out;
+      line-height: 1.25;
+      color: #77838f;
+      background-color: #fff;
+      border: 0 solid #77838f;
+      padding: 0.5rem 0.75rem;
+      border-radius: 5px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
+
 .user_item {
   box-sizing: border-box;
   display: flex;
   position: relative;
   align-items: center;
-  margin-bottom: 10pt;
+  margin-bottom: 12pt;
   background: #fff;
   border-radius: 7px;
   overflow: hidden;
@@ -56,16 +93,27 @@
       transition: all 0.08s ease 0s;
       outline: none;
 
-      &.small{
+      &.small {
         font-size: 12px;
         line-height: 31px;
         padding: 0 16px;
         height: 31px;
       }
+
       &.primary {
         color: #fff;
         background-color: #377dff;
         border-color: #377dff;
+
+        &[disabled] {
+          color: #fff;
+          border-color: #377dff;
+          background-color: #377dff;
+          box-shadow: none !important;
+          cursor: auto;
+          pointer-events: none;
+          opacity: .65;
+        }
 
         &:hover,
         &.active {
@@ -75,9 +123,17 @@
         }
 
       }
+
       &.soft_primary {
         color: #1a73e8;
         background-color: rgb(232, 240, 254);
+
+        &[disabled] {
+          box-shadow: none !important;
+          cursor: auto;
+          pointer-events: none;
+          opacity: .65;
+        }
 
         &:hover {
           color: #fff;
@@ -85,6 +141,7 @@
           background-color: #1a73e8;
         }
       }
+
       &.follow {
         color: #fff;
         border-color: #1a73e8;
@@ -108,12 +165,9 @@
     display: grid;
     grid-template-rows: 3fr;
     grid-auto-columns: 10fr 2fr;
-    grid-template-areas:
-            "name coutry"
-            "city city"
-            "status status";
+    grid-template-areas: "name coutry" "city city" "status status";
 
-    .user_name{
+    .user_name {
       margin-bottom: 2px;
       font-size: 17px;
       line-height: 1.4;
