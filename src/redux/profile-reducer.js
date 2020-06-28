@@ -1,9 +1,8 @@
-import {authAPI, usersAPI} from "../api/api";
-import {setAuthUserData, setUserData} from "./auth-reducer";
+import {authAPI, profileAPI, usersAPI} from "../api/api";
 
 const ADD_POST = 'ADD-POST',
-    CHANGE_TEXT_POST = 'CHANGE-TEXT-POST',
-    SET_USER_PROFILE = 'SET_USER_PROFILE';
+    SET_USER_PROFILE = 'SET_USER_PROFILE',
+    SET_STATUS = 'SET_STATUS';
 
 
 let initialState = {
@@ -14,7 +13,7 @@ let initialState = {
         {id: 4, message: 'Its my first post! Hello, hour are y?', likes: 15},
         {id: 5, message: 'Search for the keywords to learn more about each warning.', likes: 0},
     ],
-    newPostText: '123',
+    status: "",
     userProfile: null
 };
 
@@ -24,7 +23,7 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST:
             let newPost = {
                 id: 6,
-                message: state.newPostText,
+                message: action.newPostText,
                 likes: 5
             };
             return {
@@ -33,16 +32,17 @@ const profileReducer = (state = initialState, action) => {
                 newPostText: ''
             };
 
-        case CHANGE_TEXT_POST: {
-            return {
-                ...state,
-                newPostText: action.postText
-            };
-        }
         case SET_USER_PROFILE: {
             return {
                 ...state,
                 userProfile: action.userProfile
+            };
+        }
+
+        case SET_STATUS: {
+            return {
+                ...state,
+                status: action.status
             };
         }
         default:
@@ -50,11 +50,46 @@ const profileReducer = (state = initialState, action) => {
     }
 };
 
-export const addPostCreator = () => ({type: ADD_POST});
-
-export const changeTextPostCreator = (text) => ({type: CHANGE_TEXT_POST, postText: text});
+export const addPostCreator = (postBody) => ({type: ADD_POST, newPostText: postBody});
 
 export const setUserProfile = (userProfile) => ({type: SET_USER_PROFILE, userProfile});
+
+export const setUserStatus = (status) => ({type: SET_STATUS, status});
+
+export const getUserStatusThunkCreator = (userId) => {
+
+    return (dispatch) => {
+
+        if(!userId) {
+            authAPI.authMe().then(data => {
+                if (data.resultCode === 0) {
+                    userId = data.data.id;
+                    profileAPI.getUserStatus(userId).then(data => {
+                        dispatch(setUserStatus(data));
+                    });
+                }
+            });
+        } else {
+            profileAPI.getUserStatus(userId).then(data => {
+                dispatch(setUserStatus(data));
+            });
+        }
+
+    }
+};
+
+export const updateUserStatusThunkCreator = (status) => {
+
+    return (dispatch) => {
+
+        profileAPI.updateStatus(status).then(data => {
+            if(data.resultCode === 0) {
+                dispatch(setUserStatus(status));
+            }
+        });
+
+    }
+};
 
 export const getUserProfileThunkCreator = (userId) => {
 

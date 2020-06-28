@@ -1,16 +1,11 @@
 import React from "react";
 import {connect} from "react-redux";
-import {getAuthUserDataThunkCreator} from "../../redux/auth-reducer";
+import {logoutThunkCreator} from "../../redux/auth-reducer";
 import Header from "./Header";
 import {withRouter} from "react-router-dom";
 
 
 class HeaderContainer extends React.Component {
-
-    componentDidMount() {
-
-        this.props.getAuthUserData();
-    }
 
     render() {
         return (
@@ -32,5 +27,5 @@ const mapStateToProps = (state) => {
 
 let WithUrlDataContainerComponent = withRouter(HeaderContainer);
 
-export default connect(mapStateToProps, {getAuthUserData: getAuthUserDataThunkCreator})(WithUrlDataContainerComponent);
+export default connect(mapStateToProps, {logout: logoutThunkCreator})(WithUrlDataContainerComponent);
 

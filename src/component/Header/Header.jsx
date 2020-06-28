@@ -51,6 +51,10 @@ const Header = (props) => {
                         <a className={style.opts_account} href="#">
                             <img src={isUserData()}/>
                         </a>
+                        {props.isAuth
+                            ? <a onClick={props.logout} className={style.opts_icon_link}>Logout</a>
+                            : " "
+                        }
                     </div>
                 </div>
             </header>

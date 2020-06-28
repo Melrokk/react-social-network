@@ -1,5 +1,4 @@
-const ADD_MESSAGE = 'ADD-MESSAGE',
-    CHANGE_TEXT_MESSAGE = 'CHANGE-TEXT-MESSAGE';
+const ADD_MESSAGE = 'ADD-MESSAGE';
 
 let initialState = {
     messagesData: [
@@ -16,8 +15,7 @@ let initialState = {
         {id: 3, name: "Serge", imgUrl: "https://www.kindpng.com/userimgs/7555.jpg"},
         {id: 4, name: "An Lee", imgUrl: "https://www.kindpng.com/userimgs/760.jpg"},
         {id: 5, name: "Sara Bullak", imgUrl: "https://www.kindpng.com/userimgs/752.jpg"}
-    ],
-    newMessageText: ''
+    ]
 };
 
 const dialogsReducer = (state = initialState, action) => {
@@ -28,25 +26,18 @@ const dialogsReducer = (state = initialState, action) => {
                 ...state,
                 messagesData: [...state.messagesData, {
                     id: state.messagesData.length + 1,
-                    message: state.newMessageText,
+                    message: action.newMessageText,
                     owner: "me"
-                }],
-                newMessageText: '',
+                }]
             };
 
-        case CHANGE_TEXT_MESSAGE: {
-            return {
-                ...state,
-                newMessageText: action.newMessageText
-            };
-        }
 
         default:
             return state;
     }
 };
 
-export const addMessageCreator = () => ({type: ADD_MESSAGE});
-export const changeTextMessageCreator = (text) => ({type: CHANGE_TEXT_MESSAGE, newMessageText: text});
+export const addMessageCreator = (messageBody) => ({type: ADD_MESSAGE, newMessageText: messageBody});
+
 
 export default dialogsReducer;

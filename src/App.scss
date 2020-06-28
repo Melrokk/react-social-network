@@ -16,6 +16,81 @@ body {
     border: 0;
     border-top: 1px solid #ebebee;
   }
+
+  form {
+    .button {
+      font-weight: 600;
+      text-transform: capitalize;
+      cursor: pointer;
+      display: inline-block;
+      user-select: none;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      border: 1.5px solid transparent;
+      position: relative;
+      color: #679af9;
+      background: #dde9ff;
+      font-size: 14px;
+      line-height: 36px;
+      padding: 0 20px;
+      border-radius: 6px;
+      margin-top: 2pt;
+      height: 37px;
+      transition: all 0.08s ease 0s;
+      outline: none;
+
+      &.small {
+        font-size: 12px;
+        line-height: 31px;
+        padding: 0 16px;
+        height: 31px;
+      }
+
+      &.primary {
+        color: #fff;
+        background-color: #377dff;
+        border-color: #377dff;
+
+        &[disabled] {
+          color: #fff;
+          border-color: #377dff;
+          background-color: #377dff;
+          box-shadow: none !important;
+          cursor: auto;
+          pointer-events: none;
+          opacity: .65;
+        }
+
+        &:hover,
+        &.active {
+          color: #fff;
+          border-color: #1a73e8;
+          background-color: #1a73e8;
+        }
+
+      }
+
+      &.soft_primary {
+        color: #1a73e8;
+        background-color: rgb(232, 240, 254);
+
+        &[disabled] {
+          box-shadow: none !important;
+          cursor: auto;
+          pointer-events: none;
+          opacity: .65;
+        }
+
+        &:hover {
+          color: #fff;
+          border-color: #1a73e8;
+          background-color: #1a73e8;
+        }
+      }
+    }
+  }
+
 }
 
 code {
